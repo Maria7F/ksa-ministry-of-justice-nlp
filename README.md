@@ -8,11 +8,11 @@
 * NLP on arabic data
 
 #### Data Description:
-* final commercial judgments
-* monthly report
-* regulations and decisions
-* document of the legal pleadings system and its executive regulations
-* he document of the system of criminal procedures
+* Final commercial judgments
+* Monthly report
+* Regulations and decisions
+* Document of the legal pleadings system and its executive regulations
+* The document of the system of criminal procedures
 
 
 #### Tools:

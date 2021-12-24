@@ -9,8 +9,7 @@
 
 #### Data Description:
 * Final commercial judgments
-* Monthly report
-* Regulations and decisions
+* Appeal court judgments
 * Document of the legal pleadings system and its executive regulations
 * The document of the system of criminal procedures
 

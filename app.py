@@ -27,15 +27,19 @@ def show_predict_page():
     ok = st.button("Show  Judgement Similarities")
 
     if ok:
-        st.write(title)
-        last = df_judgment_text.append([title])
-        x = cv_tfidf.fit_transform(df_judgment_text['judgment_text']).toarray()
+        df_judgment_text_new = df_judgment_text.append({'judgment_text':title},ignore_index=True)
+        x = cv_tfidf.fit_transform(df_judgment_text_new['judgment_text']).toarray()
         dt_tfidf = pd.DataFrame(x,columns=cv_tfidf.get_feature_names())
         similars = cosine_similarity(dt_tfidf.iloc[-1:,:],dt_tfidf).argsort()[0][-6:]
+        similars = similars[-2::-1][:dt_tfidf.shape[0]]
         
-        st.write(similars)
+        # st.write(similars)
         for i in similars:
-            st.write(i, df.link.iloc[i])
+            percents = round(cosine_similarity(dt_tfidf.iloc[-1:,:], dt_tfidf.loc[i:i,:])[0][0],2)
+            st.write("---")
+            st.write("قضية رقم : ",i.astype('str'))
+            st.write("رابط القضية : ", df.link.iloc[i])
+            st.write(percents.astype('str'), " %")
 
 
 show_predict_page()
